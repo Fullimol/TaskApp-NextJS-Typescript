@@ -9,10 +9,11 @@ const Home = () => {
 
   return (
     <div className='flex justify-center align-center'>
-      {tasks.length === 0 ? (<h1>No tasks</h1>) : (
+      {tasks.length === 1 ? (<h1>No tasks</h1>) : (
         <div className='w-7/12'  >
           {tasks.map((task, index) => (
-            <div key={task.id} className='bg-gray-700 hover:bg-gray-600 cursor-pointer px-20 py-5 m-2 flex justify-star items-center' onClick={() => router.push(`edit/${task.id}`)}>
+            
+            <div key={task.id} className={` ${task.id === 1 ? 'hidden' : 'block'} bg-gray-700 hover:bg-gray-600 cursor-pointer px-20 py-5 m-2 flex justify-start items-center`} onClick={() => router.push(`edit/${task.id}`)} style={{ display: task.id === 1 ? 'none' : "" }}>
               <span className='text-5xl mr-5'>{index}</span>
               <div className='w-full'>
                 <div className='flex justify-between'>

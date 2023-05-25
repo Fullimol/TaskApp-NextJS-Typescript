@@ -19,7 +19,11 @@ interface UseTaskData {
 type UpdateTask = Partial<Task>;
 
 const useTasks = (): UseTaskData => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([{
+    id:1,
+    title: "",
+    description: ""
+  }]);
 
   const deleteTask = (id: number | string) => {
     setTasks(tasks.filter(task => task.id !== id));
