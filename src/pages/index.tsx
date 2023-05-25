@@ -10,9 +10,8 @@ const Home = () => {
 
   return (
     <div>
-
       <div>
-        <div className='flex justify-center align-center mb-5'>
+        <div className='flex justify-center align-center mb-8'>
           <button className='transition hover:scale-110 hover:bg-green-500 bg-green-700 px-3 py-2 rounded-xl inline-flex items-center' onClick={() => router.push("/new")}>
           <AiOutlinePlus className='mr-2' />
             {"New Task"}

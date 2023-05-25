@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import { useLocalStorage } from './useLocalStorage';
 
 interface Task {
   id: number | string;
@@ -19,20 +20,22 @@ interface UseTaskData {
 type UpdateTask = Partial<Task>;
 
 const useTasks = (): UseTaskData => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useLocalStorage("tasks", []);
+  // const [tasks, setTasks] = useState<Task[]>([]);
 
   const deleteTask = (id: number | string) => {
-    setTasks(tasks.filter(task => task.id !== id));
+    setTasks(tasks.filter((task: Task) => task.id !== id));
   };
 
   const createTask = (title: string, description: string) => {
     setTasks([...tasks, { title, description, id: uuid() }])
   }
 
+  //esta funcion copia todo lo que ya exista en "task", busca si alguna coincide con el id, si es así: Pasa una copia de todos los VALORES de ese objeto, y luego actualiza el valor que se modifica. SI NO COINCIDE EL ID: solo pasa el "task" actual
   const updateTask = (id: string | string[], updatedTask: UpdateTask) => {
-    //esta funcion copia todo lo que ya exista en "task", busca si alguna coincide con el id, si es así: Pasa una copia de todos los VALORES de ese objeto, y luego actualiza el valor que se modifica. SI NO COINCIDE EL ID: solo pasa el "task" actual
-    setTasks([...tasks.map(task => task.id === id ? { ...task, ...updatedTask } : task)])
+    setTasks([...tasks.map((task: Task) => task.id === id ? { ...task, ...updatedTask } : task)])
   }
+  
 
   return {
     tasks,

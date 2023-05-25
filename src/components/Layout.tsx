@@ -25,7 +25,7 @@ const Layout = (props: Props) => {
                 {children}
             </main>
             <footer className='items-center bg-gray-800 text-gray-400 flex py-2 justify-center fixed bottom-0 w-full'>
-                <p>© 2022 | Freijomil Bruno Ezequiel</p>
+                <p>© 2023 | Freijomil Bruno Ezequiel</p>
             </footer>
         </div>
     )
