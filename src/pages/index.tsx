@@ -37,7 +37,7 @@ const Home = () => {
                       <BsFillTrash3Fill className='mr-2' /> Delete </button>
                   </div>
                   <p className='text-gray-300'>{task.description}</p>
-                  <span className='text-gray-500 text-sm'>id: {task.id}</span>
+                  {/* <span className='text-gray-500 text-sm'>id: {task.id}</span> */}
                 </div>
               </div>
             ))
