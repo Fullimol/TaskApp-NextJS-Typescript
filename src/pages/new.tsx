@@ -70,7 +70,6 @@ const TaskFormPage = () => {
             {query.id ? "Cancel changes" : "Cancel"}
           </button>
         </Link>
-
       </div>
     </form>
 
