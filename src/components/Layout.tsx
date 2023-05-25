@@ -39,7 +39,6 @@ const Layout = (props: Props) => {
                             {"New Task"}
                         </button>
                     )}
-
                 </div>
 
             </nav>

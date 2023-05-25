@@ -2,6 +2,8 @@ import React, { ChangeEvent, FormEvent, useContext, useEffect, useState } from '
 import { AiOutlinePlus } from "react-icons/ai";
 import { Context } from '../context/ContextProvider';
 import { useRouter } from 'next/router';
+import { MdCancel } from 'react-icons/md';
+import Link from 'next/link';
 
 type Task = {
   title: string;
@@ -48,7 +50,7 @@ const TaskFormPage = () => {
   }, [query.id, tasks]);
 
   return (
-       <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <h1 className='text-center m-5 text-xl'>{query.id ? "Update a Task" : "Create a Task"}</h1>
 
       <h2 className='mb-3'>Tittle: </h2>
@@ -58,13 +60,20 @@ const TaskFormPage = () => {
       <textarea rows={2} value={newtask.description} name='description' placeholder='Write a description...' className='w-full h-40  text-gray-300 bg-gray-800 focus:text-gray-100 focus:outline-none resize-none py-3 px-4' onChange={handleChange}></textarea>
 
       <div className='flex justify-center m-5'>
-        <button className='transition hover:scale-110 hover:bg-green-500 bg-green-700 px-3 py-2 rounded-xl inline-flex items-center disabled:opacity-50' >
+        <button className='transition hover:scale-110 hover:bg-green-500 bg-green-700 px-3 py-2 mr-2 rounded-xl inline-flex items-center disabled:opacity-50' >
           <AiOutlinePlus className='mr-2' />
           {query.id ? "Save changes" : "Add task"}
         </button>
+        <Link href={"/"}>
+          <button className='transition hover:scale-110 hover:bg-red-500 bg-red-700 px-3 py-2 ml-2 rounded-xl inline-flex items-center' >
+            <MdCancel className='mr-2' />
+            {query.id ? "Cancel changes" : "Cancel"}
+          </button>
+        </Link>
+
       </div>
     </form>
-   
+
   )
 }
 
