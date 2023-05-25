@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useLocalStorage } from './useLocalStorage';
 
@@ -21,7 +20,6 @@ type UpdateTask = Partial<Task>;
 
 const useTasks = (): UseTaskData => {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
-  // const [tasks, setTasks] = useState<Task[]>([]);
 
   const deleteTask = (id: number | string) => {
     setTasks(tasks.filter((task: Task) => task.id !== id));
@@ -36,7 +34,6 @@ const useTasks = (): UseTaskData => {
     setTasks([...tasks.map((task: Task) => task.id === id ? { ...task, ...updatedTask } : task)])
   }
   
-
   return {
     tasks,
     setTasks,
