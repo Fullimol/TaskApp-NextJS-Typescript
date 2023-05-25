@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react'
-import Layout from '../components/Layout'
 import { AiOutlinePlus } from "react-icons/ai";
 import { Context } from '../context/ContextProvider';
 import { useRouter } from 'next/router';
@@ -8,7 +7,6 @@ type Task = {
   title: string;
   description: string;
 };
-
 
 const TaskFormPage = () => {
   const [newtask, setNewTask] = useState<Task>({
@@ -25,8 +23,6 @@ const TaskFormPage = () => {
     const { name, value } = e.target;
     setNewTask({ ...newtask, [name]: value });
   };
-
-
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -52,8 +48,7 @@ const TaskFormPage = () => {
   }, [query.id, tasks]);
 
   return (
-    // <Layout show_cancel>
-    <form onSubmit={handleSubmit}>
+       <form onSubmit={handleSubmit}>
       <h1 className='text-center m-5 text-xl'>{query.id ? "Update a Task" : "Create a Task"}</h1>
 
       <h2 className='mb-3'>Tittle: </h2>
@@ -68,13 +63,9 @@ const TaskFormPage = () => {
           {query.id ? "Save changes" : "Add task"}
         </button>
       </div>
-
     </form>
-    // </Layout>
+   
   )
 }
 
 export default TaskFormPage
-
-
-// Seguir por acá añadiendo la funciones de editar task y hacer que el navbar Layout cambie si la url está en "new"
