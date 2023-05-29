@@ -54,13 +54,13 @@ const TaskFormPage = () => {
       <h1 className='text-center m-5 text-xl'>{query.id ? "Update a Task" : "Create a Task"}</h1>
 
       <h2 className='mb-3'>Tittle: </h2>
-      <input type="text" value={newtask.title} name='title' placeholder='Write a tittle...' className='text-gray-300 bg-gray-800 focus:text-gray-100 focus:outline-none w-full py-3 px-4 mb-5' onChange={handleChange} />
+      <input id="tittle" type="text" value={newtask.title} name='title' placeholder='Write a tittle...' className='text-gray-300 bg-gray-800 focus:text-gray-100 focus:outline-none w-full py-3 px-4 mb-5' onChange={handleChange} />
 
       <h2 className='mb-3'>Description: </h2>
-      <textarea rows={2} value={newtask.description} name='description' placeholder='Write a description...' className='w-full h-40  text-gray-300 bg-gray-800 focus:text-gray-100 focus:outline-none resize-none py-3 px-4' onChange={handleChange}></textarea>
+      <textarea id="description" rows={2} value={newtask.description} name='description' placeholder='Write a description...' className='w-full h-40  text-gray-300 bg-gray-800 focus:text-gray-100 focus:outline-none resize-none py-3 px-4' onChange={handleChange}></textarea>
 
       <div className='flex justify-center m-5'>
-        <button className='transition hover:scale-110 hover:bg-green-500 bg-green-700 px-3 py-2 mr-2 rounded-xl inline-flex items-center disabled:opacity-50' >
+        <button id='button-save-change' className='transition hover:scale-110 hover:bg-green-500 bg-green-700 px-3 py-2 mr-2 rounded-xl inline-flex items-center disabled:opacity-50' >
           <AiOutlinePlus className='mr-2' />
           {query.id ? "Save changes" : "Add task"}
         </button>
