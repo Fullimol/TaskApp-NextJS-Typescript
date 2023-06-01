@@ -9,7 +9,7 @@ interface Props {
 
 const Layout = (props: Props) => {
     const { children } = props
-    const { tasks } = useContext(Context)
+    const { tasks, completedTasks } = useContext(Context)
 
     return (
         <div className='h-screen bg-gray-900 text-white'>
@@ -17,9 +17,19 @@ const Layout = (props: Props) => {
                 <Link href="/">
                     <h1 className='font-black text-lg'>Task App</h1>
                 </Link>
-                <span className='m-2 text-gray-400'>
-                    {tasks.length} Tasks
-                </span>
+                <div>
+                    <Link href="/">
+                        <span className='m-2 text-gray-400'>
+                            {tasks.length} Current
+                        </span>
+                    </Link>
+                    <Link href="/completed">
+                        <span className='m-2 text-gray-400'>
+                            {completedTasks.length} Completed
+                        </span>
+                    </Link>
+                </div>
+
             </nav>
             <main className='px-28 py-10 bg-gray-900'>
                 {children}

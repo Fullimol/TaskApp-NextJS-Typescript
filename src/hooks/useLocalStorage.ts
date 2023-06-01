@@ -2,7 +2,7 @@ import { useDebugValue, useEffect, useState } from "react";
 
 export function useLocalStorage(key:any, initialState:any) {
   const [state, setState] = useState(initialState);
-  useDebugValue(state);
+
 
   useEffect(() => {
     const item = localStorage.getItem(key);
