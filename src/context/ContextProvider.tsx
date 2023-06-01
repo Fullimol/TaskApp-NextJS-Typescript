@@ -2,7 +2,7 @@ import useTasks from '@/hooks/useTasks';
 import React, { ReactNode, createContext } from 'react';
 
 //aca se establece el estado inicial, luego estos datos se sobreescriben
-export const Context = createContext<ContextType>({ tasks: [], deleteTask: () => { }, createTask: () => { }, updateTask: () => { }, completedTasks: [], addTaskToCompleted: () => {}, clearCompletedTasks: () => {}  });
+export const Context = createContext<ContextType>({ tasks: [], deleteTask: () => { }, createTask: () => { }, updateTask: () => { }, completedTasks: [], addTaskToCompleted: () => { }, clearCompletedTasks: () => { } });
 
 // aca pongo los types que hay dentro del objeto "task"
 interface Task {

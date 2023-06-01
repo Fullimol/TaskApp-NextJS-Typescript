@@ -1,6 +1,6 @@
-import { useDebugValue, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-export function useLocalStorage(key:any, initialState:any) {
+export function useLocalStorage(key: any, initialState: any) {
   const [state, setState] = useState(initialState);
 
 
@@ -18,7 +18,7 @@ export function useLocalStorage(key:any, initialState:any) {
   return [state, setState];
 }
 
-function parse(obj:any) {
+function parse(obj: any) {
   try {
     return JSON.parse(obj);
   } catch {

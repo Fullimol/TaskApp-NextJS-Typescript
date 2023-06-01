@@ -10,7 +10,7 @@ const completed = (props: Props) => {
 
     return (
         <div>
-            <h1 className='text-center text-3xl'>Tasks completed!</h1>
+            <h1 className='text-center text-3xl'>Tasks completed</h1>
             {completedTasks.length === 0 ? (<h1 className='text-center' style={{ marginTop: "200px" }}>(No tasks completed)</h1>) : (
                 <div>
                     <div className='flex justify-center  p-3'>

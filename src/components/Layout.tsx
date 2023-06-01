@@ -35,7 +35,7 @@ const Layout = (props: Props) => {
                 {children}
             </main>
             <footer className='items-center bg-gray-800 text-gray-400 flex py-2 justify-center fixed bottom-0 w-full'>
-                <p>© 2023 | Freijomil Bruno Ezequiel</p>
+                <a href="https://brunofreijomil.com/" target='_blank'><p>© 2023 | <span className='hover:text-gray-300'>Freijomil Bruno Ezequiel</span> </p></a>
             </footer>
         </div>
     )
