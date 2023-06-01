@@ -19,12 +19,12 @@ const Layout = (props: Props) => {
                 </Link>
                 <div>
                     <Link href="/">
-                        <span className='m-2 text-gray-400'>
+                        <span className='m-2 text-gray-400 hover:text-gray-300'>
                             {tasks.length} Current
                         </span>
                     </Link>
                     <Link href="/completed">
-                        <span className='m-2 text-gray-400'>
+                        <span className='m-2 text-gray-400 hover:text-gray-300'>
                             {completedTasks.length} Completed
                         </span>
                     </Link>

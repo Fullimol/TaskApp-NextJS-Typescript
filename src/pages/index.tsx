@@ -29,24 +29,30 @@ const Home = () => {
                 <div className='w-full'>
                   <div className='flex justify-between'>
                     <h1 className='font-bold'>{task.title}</h1>
-                    
+
 
                   </div>
                   <p className='text-gray-300'>{task.description}</p>
                   {/* <span className='text-gray-500 text-sm'>id: {task.id}</span> */}
                 </div>
-                <div className='block text-center'>
-                      <button className='rounded-xl bg-red-700 hover:bg-red-600 px-3 py-1 flex items-center mb-1' onClick={(e) => {
+                <div>
+                  <div>
+                    <div className='flex justify-center'>
+                      <button className='rounded-xl bg-red-700 hover:bg-red-600 px-3 py-1 flex items-center mb-1 ' onClick={(e) => {
                         e.stopPropagation();
                         deleteTask(task.id)
                       }}>
                         <BsFillTrash3Fill className='mr-2' /> Delete </button>
+                    </div>
+                    <div>
                       <button className='rounded-xl bg-green-700 hover:bg-green-600 px-3 py-1 flex items-center mt-1' onClick={(e) => {
                         e.stopPropagation();
                         addTaskToCompleted(task.id)
                       }}>
-                       <AiFillCheckCircle className='mr-2'/> complete </button>
+                        <AiFillCheckCircle className='mr-2' /> Complete </button>
                     </div>
+                  </div>
+                </div>
               </div>
             ))
             }
