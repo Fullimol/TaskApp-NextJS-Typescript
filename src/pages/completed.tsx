@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { Context } from '../context/ContextProvider'
 import { MdCancel } from 'react-icons/md'
 
-
 type Props = {}
 
 const completed = (props: Props) => {

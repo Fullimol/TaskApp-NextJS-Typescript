@@ -31,10 +31,10 @@ const TaskFormPage = () => {
 
     if (!query.id) {
       createTask(newtask.title, newtask.description)
-      alert("Add new task")
+
     } else {
       updateTask(query.id, newtask)
-      alert("Task updated")
+ 
     }
     push("/")
   }

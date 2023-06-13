@@ -25,7 +25,7 @@ type UpdateTask = Partial<Task>;
 const useTasks = (): UseTaskData => {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
   const [completedTasks, setCompletedTasks] = useLocalStorage("completedTasks", []);
-  // const [tasks, setTasks] = useState<Task[]>([]);
+
 
   const deleteTask = (id: number | string) => {
     setTasks(tasks.filter((task: Task) => task.id !== id));

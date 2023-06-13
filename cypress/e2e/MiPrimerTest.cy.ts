@@ -12,6 +12,6 @@ describe('template spec', () => {
     cy.get('#description').type(`Esta es la descripción MODIFICADA!!`)
     cy.get('#button-save-change').click()
 
-    cy.get('.justify-between > .rounded-xl').click()
+    cy.get(':nth-child(3) > :nth-child(1) > :nth-child(2) > .rounded-xl').click()
   })
 })
