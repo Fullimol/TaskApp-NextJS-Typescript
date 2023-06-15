@@ -13,7 +13,7 @@ const completed = (props: Props) => {
             <h1 className='text-center text-3xl mb-6'>Tasks completed</h1>
             {completedTasks.length === 0 ? (<h1 className='text-center' style={{ marginTop: "200px" }}>(No tasks completed)</h1>) : (
                 <div>
-                    <div className='flex justify-center pb-3'>
+                    <div className='flex justify-center mb-8'>
                         <button className='transition hover:scale-110 hover:bg-red-500 bg-red-700 px-2 py-2 md:mx-0 md:px-3  rounded-xl inline-flex items-center md:m-5'
                             onClick={(e) => {
                                 e.stopPropagation();
