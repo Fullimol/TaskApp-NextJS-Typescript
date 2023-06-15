@@ -2,7 +2,7 @@ import useTasks from '@/hooks/useTasks';
 import React, { ReactNode, createContext } from 'react';
 
 //aca se establece el estado inicial, luego estos datos se sobreescriben
-export const Context = createContext<ContextType>({ tasks: [], deleteTask: () => { }, createTask: () => { }, updateTask: () => { }, completedTasks: [], addTaskToCompleted: () => { }, clearCompletedTasks: () => { } });
+export const Context = createContext<ContextType>({ tasks: [], deleteTask: () => { }, createTask: () => { }, updateTask: () => { }, completedTasks: [], addTaskToCompleted: () => { }, clearCompletedTasks: () => { }, restoreTask: () => { } });
 
 // aca pongo los types que hay dentro del objeto "task"
 interface Task {
@@ -23,6 +23,7 @@ interface ContextType {
     completedTasks: Task[];
     addTaskToCompleted: (id: number | string) => void,
     clearCompletedTasks: () => void;
+    restoreTask: (id: number | string) => void,
 }
 
 // aca pongo los types de las props que se reciben
@@ -32,10 +33,10 @@ type Props = {
 
 const ContextProvider = (props: Props) => {
     const { children } = props;
-    const { tasks, deleteTask, createTask, updateTask, completedTasks, addTaskToCompleted, clearCompletedTasks } = useTasks();
+    const { tasks, deleteTask, createTask, updateTask, completedTasks, addTaskToCompleted, clearCompletedTasks, restoreTask } = useTasks();
 
     return (
-        <Context.Provider value={{ tasks, deleteTask, createTask, updateTask, completedTasks, addTaskToCompleted, clearCompletedTasks }}>
+        <Context.Provider value={{ tasks, deleteTask, createTask, updateTask, completedTasks, addTaskToCompleted, clearCompletedTasks, restoreTask }}>
             {children}
         </Context.Provider>
     );

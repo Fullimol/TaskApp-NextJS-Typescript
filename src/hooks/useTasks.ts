@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useLocalStorage } from './useLocalStorage';
 
@@ -18,6 +17,7 @@ interface UseTaskData {
   completedTasks: Task[],
   addTaskToCompleted: (id: number | string) => void,
   clearCompletedTasks: () => void;
+  restoreTask: (id: number | string) => void,
 }
 
 type UpdateTask = Partial<Task>;
@@ -57,9 +57,25 @@ const useTasks = (): UseTaskData => {
   const clearCompletedTasks = () => {
     setCompletedTasks([]);
     localStorage.setItem("completedTasks", JSON.stringify([])); //esto es por si queda en 0 el array, borre el ultimo dato
-    console.log(completedTasks)
+
   };
 
+
+  const restoreTask = (id: string | number) => {
+    // Buscar la tarea completada que se va a restaurar por su id
+    const taskToRestore = completedTasks.find((task: Task) => task.id === id);
+
+    if (!taskToRestore) {
+      return; // La tarea no fue encontrada, no se realiza ninguna acción
+    }
+
+    // Actualizar el array de tareas completadas eliminando la tarea restaurada
+    setCompletedTasks((prevCompletedTasks: Task[]) => prevCompletedTasks.filter((task) => task.id !== id));
+    localStorage.setItem("completedTasks", JSON.stringify([]));  //esto es por si queda en 0 el array, borre el ultimo dato
+
+    // Agregar la tarea restaurada al array de todas las tareas
+    setTasks((prevTasks: Task[]) => [...prevTasks, taskToRestore]);
+  };
 
   return {
     tasks,
@@ -69,7 +85,8 @@ const useTasks = (): UseTaskData => {
     updateTask,
     completedTasks,
     addTaskToCompleted,
-    clearCompletedTasks
+    clearCompletedTasks,
+    restoreTask
   };
 };
 

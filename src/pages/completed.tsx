@@ -6,14 +6,14 @@ import CardTask from '@/components/CardTask'
 type Props = {}
 
 const completed = (props: Props) => {
-    const { completedTasks, clearCompletedTasks } = useContext(Context)
+    const { completedTasks, clearCompletedTasks, restoreTask } = useContext(Context)
 
     return (
         <div>
-            <h1 className='text-center text-3xl'>Tasks completed</h1>
+            <h1 className='text-center text-3xl mb-6'>Tasks completed</h1>
             {completedTasks.length === 0 ? (<h1 className='text-center' style={{ marginTop: "200px" }}>(No tasks completed)</h1>) : (
                 <div>
-                    <div className='flex justify-center  p-3'>
+                    <div className='flex justify-center pb-3'>
                         <button className='transition hover:scale-110 hover:bg-red-500 bg-red-700 px-2 py-2 md:mx-0 md:px-3  rounded-xl inline-flex items-center md:m-5'
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -31,11 +31,15 @@ const completed = (props: Props) => {
                                 <CardTask
                                     id={taskChek.id}
                                     key={index}
-                                    index={completedTasks.length - index}
+                                    index={completedTasks.length - index} /* se calcula restando el índice invertido de la longitud total del array de completedTasks. Esto asignará números descendentes en orden inverso. */
                                     title={taskChek.title}
                                     description={taskChek.description}
                                     show_buttons={false}
                                     quit_pointer={true}
+                                    onClickRestore_button={(e) => {
+                                        e.stopPropagation();
+                                        restoreTask(taskChek.id)
+                                    }}
                                 />
                             ))}
                         </div>

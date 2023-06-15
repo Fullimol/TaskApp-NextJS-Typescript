@@ -1,8 +1,7 @@
 import { useContext } from 'react'
 import { Context } from '../context/ContextProvider'
-import { BsFillTrash3Fill } from 'react-icons/bs'
 import { useRouter } from 'next/router'
-import { AiFillCheckCircle, AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlinePlus } from 'react-icons/ai'
 import CardTask from '@/components/CardTask'
 
 const Home = () => {
