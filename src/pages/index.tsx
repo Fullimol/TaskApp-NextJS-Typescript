@@ -21,7 +21,7 @@ const Home = () => {
       </div>
 
       <div className='flex justify-center align-center'>
-        {tasks.length === 0 ? (<h1 style={{ marginTop: "200px" }}>(No tasks)</h1>) : (
+        {tasks.length === 0 ? (<h1 className='text-gray-500 mt-40' >(No tasks)</h1>) : (
           <div className='w-full xl:w-7/12'  >
             {tasks.map(({ id, title, description }, index) => (
               <CardTask
@@ -51,32 +51,3 @@ const Home = () => {
 }
 
 export default Home
-
-
-{/* <div key={task.id} className={`bg-gray-700 hover:bg-gray-600 cursor-pointer px-20 py-5 m-2 block md:flex justify-start items-center `} onClick={() => router.push(`edit/${task.id}`)}>
-                <span className='flex justify-center text-3xl md:block md:text-5xl mr-0 md:mr-5 '>{index + 1}</span>
-                <div className='w-full'>
-                  <div className='flex justify-between'>
-                    <h1 className='font-bold'>{task.title}</h1>
-                  </div>
-                  <p className='text-gray-300'>{task.description}</p>
-                </div>
-                <div>
-                  <div>
-                    <div className='flex justify-center'>
-                      <button className='rounded-xl bg-red-700 hover:bg-red-600 px-3 py-1 flex items-center mb-1 ' onClick={(e) => {
-                        e.stopPropagation();
-                        deleteTask(task.id)
-                      }}>
-                        <BsFillTrash3Fill className='mr-2' /> Delete </button>
-                    </div>
-                    <div>
-                      <button className='rounded-xl bg-green-700 hover:bg-green-600 px-3 py-1 flex items-center mt-1' onClick={(e) => {
-                        e.stopPropagation();
-                        addTaskToCompleted(task.id)
-                      }}>
-                        <AiFillCheckCircle className='mr-2' /> Complete </button>
-                    </div>
-                  </div>
-                </div>
-              </div> */}

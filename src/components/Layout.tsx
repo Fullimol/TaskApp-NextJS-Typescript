@@ -31,7 +31,7 @@ const Layout = (props: Props) => {
                 </div>
 
             </nav>
-            <main className='px-2 md:px-28 py-10 bg-gray-900'>
+            <main className='px-2 py-5 md:px-28 md:py-10 bg-gray-900'>
                 {children}
             </main>
             <footer className='items-center bg-gray-800 text-gray-400 flex py-2 justify-center fixed bottom-0 w-full'>
