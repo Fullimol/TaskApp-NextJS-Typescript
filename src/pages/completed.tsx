@@ -14,7 +14,7 @@ const completed = (props: Props) => {
             {completedTasks.length === 0 ? (<h1 className='text-center mt-40 text-gray-500'>(No tasks completed)</h1>) : (
                 <div>
                     <div className='flex justify-center mb-8'>
-                        <button className='transition hover:scale-110 hover:bg-red-500 bg-red-700 px-2 py-2 md:mx-0 md:px-3  rounded-xl inline-flex items-center md:m-5'
+                        <button className='transition hover:scale-110 hover:bg-red-500 bg-red-700 px-2 py-2 md:mx-0 md:px-3  rounded-xl inline-flex items-center '
                             onClick={(e) => {
                                 e.stopPropagation();
                                 clearCompletedTasks()

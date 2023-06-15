@@ -19,8 +19,10 @@ type Props = {
 const CardTask = (props: Props) => {
     const { id, title, description, index, onClickTask, onClickDelete_button, onClickAdd_button, show_buttons, quit_pointer, onClickRestore_button } = props
     return (
-        <div key={id} className={`bg-gray-700 hover:bg-gray-600 px-1 xl:px-20 py-5 m-2 block xl:flex justify-start items-center ${quit_pointer ? '' : 'cursor-pointer'}`} onClick={onClickTask}>
-            <span className='flex justify-center text-3xl xl:block xl:text-5xl mr-0 xl:mr-5 '>{index}</span>
+        <div key={id} className={`rounded-xl bg-gray-700 hover:bg-gray-600 px-1 xl:px-20 py-5 m-5 block xl:flex justify-start items-center transition hover:scale-105 ${quit_pointer ? '' : 'cursor-pointer'}`} onClick={onClickTask}>
+            <div className='flex justify-center pb-2 md:pb-0'>
+                <span className=' text-xl xl:block xl:text-5xl mr-0 xl:mr-5 bg-gray-500 rounded-xl items-center pb-1 px-2'>{index}</span>
+            </div>
             <div className='w-full'>
                 <div className='flex justify-center xl:justify-between'>
                     <h1 className='font-bold'>{title}</h1>

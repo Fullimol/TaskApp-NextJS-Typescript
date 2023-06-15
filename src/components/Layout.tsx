@@ -15,7 +15,7 @@ const Layout = (props: Props) => {
         <div className='h-screen bg-gray-900 text-white'>
             <nav className='items-center bg-gray-800 flex px-5 py-5 justify-between md:px-28'>
                 <Link href="/">
-                    <h1 className='font-black text-lg'>Task App</h1>
+                    <h1 className='font-black text-2xl'>Task App</h1>
                 </Link>
                 <div>
                     <Link href="/">

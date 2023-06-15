@@ -51,7 +51,7 @@ const TaskFormPage = () => {
 
   return (
     <div className='flex justify-center'>
-      <form onSubmit={handleSubmit} className='md:w-7/12'>
+      <form onSubmit={handleSubmit} className='w-full md:w-10/12 xl:w-7/12'>
         <h1 className='text-center mb-1 md:mb-5 text-xl'>{query.id ? "Update a Task" : "Create a Task"}</h1>
 
         <h2 className='mb-3'>Tittle: </h2>
