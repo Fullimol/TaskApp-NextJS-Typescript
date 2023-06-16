@@ -6,7 +6,7 @@ import CardTask from '@/components/CardTask'
 type Props = {}
 
 const completed = (props: Props) => {
-    const { completedTasks, clearCompletedTasks, restoreTask, createdAt } = useContext(Context)
+    const { completedTasks, clearCompletedTasks, restoreTask } = useContext(Context)
 
     return (
         <div>
