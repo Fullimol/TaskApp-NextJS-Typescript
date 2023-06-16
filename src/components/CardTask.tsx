@@ -27,7 +27,7 @@ const CardTask = (props: Props) => {
             </div>
             <div className={`px-1 xl:px-20 pb-5  block xl:flex justify-start items-center `}>
                 <div className='flex justify-center pb-2 md:pb-0'>
-                    <span className=' text-xl xl:block xl:text-5xl mr-0 xl:mr-5 bg-gray-500 rounded-xl items-center pb-1 px-2'>{index}</span>
+                    <span className=' text-xl xl:block xl:text-5xl mr-0 xl:mr-5 bg-gray-500 rounded-xl items-center  px-2'>{index}</span>
                 </div>
                 <div className='w-full'>
                     <div className='flex justify-center xl:justify-between'>
