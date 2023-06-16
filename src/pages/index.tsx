@@ -23,26 +23,29 @@ const Home = () => {
       <div className='flex justify-center align-center'>
         {tasks.length === 0 ? (<h1 className='text-gray-500 mt-40' >(No tasks)</h1>) : (
           <div className='w-full xl:w-7/12'  >
-            {tasks.map(({ id, title, description }, index) => (
-              <CardTask
-                key={index}
-                id={id}
-                title={title}
-                description={description}
-                index={index + 1}
-                show_buttons={true}
-                onClickTask={() => router.push(`edit/${id}`)}
-                onClickAdd_button={(e) => {
-                  e.stopPropagation();
-                  addTaskToCompleted(id)
-                }}
-                onClickDelete_button={(e) => {
-                  e.stopPropagation();
-                  deleteTask(id)
-                }}
-              />
-            ))
-            }
+            {tasks.map(({ id, title, description, createdAt }, index) => {
+              const formattedDate = new Date(createdAt).toLocaleString(); //esto es para darle un formato mas "visual" a la fecha
+              return (
+                  <CardTask
+                    key={id}
+                    id={id}
+                    title={title}
+                    description={description}
+                    index={index + 1}
+                    show_buttons={true}
+                    onClickTask={() => router.push(`edit/${id}`)}
+                    onClickAdd_button={(e) => {
+                      e.stopPropagation();
+                      addTaskToCompleted(id);
+                    }}
+                    onClickDelete_button={(e) => {
+                      e.stopPropagation();
+                      deleteTask(id);
+                    }}
+                    date= {formattedDate}
+                  />
+              );
+            })}
           </div>
         )}
       </div>

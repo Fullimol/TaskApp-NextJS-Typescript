@@ -6,6 +6,7 @@ interface Task {
   title: string;
   description: string;
   // Otras propiedades de la tarea
+  createdAt: Date
 }
 
 interface UseTaskData {
@@ -34,7 +35,7 @@ const useTasks = (): UseTaskData => {
   };
 
   const createTask = (title: string, description: string) => {
-    setTasks([...tasks, { title, description, id: uuid() }])
+    setTasks([...tasks, { title, description, id: uuid(), createdAt: new Date() }])
   }
 
   //esta funcion copia todo lo que ya exista en "task", busca si alguna coincide con el id, si es así: Pasa una copia de todos los VALORES de ese objeto, y luego actualiza el valor que se modifica. SI NO COINCIDE EL ID: solo pasa el "task" actual
@@ -91,7 +92,3 @@ const useTasks = (): UseTaskData => {
 };
 
 export default useTasks;
-
-
-// 31/05 18:54
-// SOLUCIONAR! que siempre la ultima task no se borra del LocalStorage!

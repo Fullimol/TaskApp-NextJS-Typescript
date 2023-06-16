@@ -6,10 +6,11 @@ export const Context = createContext<ContextType>({ tasks: [], deleteTask: () =>
 
 // aca pongo los types que hay dentro del objeto "task"
 interface Task {
-    id: number | string;
-    title: string;
-    description: string;
+    id: number | string
+    title: string
+    description: string
     // Otras propiedades de la tarea
+    createdAt: Date
 }
 
 type UpdateTask = Partial<Task>;

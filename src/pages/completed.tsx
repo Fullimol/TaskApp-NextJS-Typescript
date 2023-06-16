@@ -6,7 +6,7 @@ import CardTask from '@/components/CardTask'
 type Props = {}
 
 const completed = (props: Props) => {
-    const { completedTasks, clearCompletedTasks, restoreTask } = useContext(Context)
+    const { completedTasks, clearCompletedTasks, restoreTask, createdAt } = useContext(Context)
 
     return (
         <div>
@@ -27,21 +27,25 @@ const completed = (props: Props) => {
                     <div className='flex justify-center align-center'>
                         <div className='w-full xl:w-7/12'  >
                             {/* En este ejemplo, se utiliza slice() antes de reverse() para crear una copia del array completedTasks. Esto es necesario porque el método reverse() modifica el array original en su lugar. Al crear una copia, aseguramos que no se modifique el array original. */}
-                            {completedTasks?.slice().reverse().map((taskChek, index) => (
-                                <CardTask
-                                    id={taskChek.id}
-                                    key={index}
-                                    index={completedTasks.length - index} /* se calcula restando el índice invertido de la longitud total del array de completedTasks. Esto asignará números descendentes en orden inverso. */
-                                    title={taskChek.title}
-                                    description={taskChek.description}
-                                    show_buttons={false}
-                                    quit_pointer={true}
-                                    onClickRestore_button={(e) => {
-                                        e.stopPropagation();
-                                        restoreTask(taskChek.id)
-                                    }}
-                                />
-                            ))}
+                            {completedTasks?.slice().reverse().map((taskChek, index) => {
+                                const formattedDate = new Date(taskChek.createdAt).toLocaleString(); //esto es para darle un formato mas "visual" a la fecha
+                                return (
+                                    <CardTask
+                                        id={taskChek.id}
+                                        key={index}
+                                        index={completedTasks.length - index} /* se calcula restando el índice invertido de la longitud total del array de completedTasks. Esto asignará números descendentes en orden inverso. */
+                                        title={taskChek.title}
+                                        description={taskChek.description}
+                                        show_buttons={false}
+                                        quit_pointer={true}
+                                        onClickRestore_button={(e) => {
+                                            e.stopPropagation();
+                                            restoreTask(taskChek.id)
+                                        }}
+                                        date={formattedDate}
+                                    />
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
