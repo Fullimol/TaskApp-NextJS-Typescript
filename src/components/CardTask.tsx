@@ -23,7 +23,7 @@ const CardTask = (props: Props) => {
     return (
         <div key={id} className={`rounded-xl bg-gray-700 hover:bg-gray-600 m-5 transition hover:scale-105 ${quit_pointer ? '' : 'cursor-pointer'}`} onClick={onClickTask}>
             <div className='text-center'>
-                <p className='text-sm text-gray-300 pb-1'>Create: {date}</p>
+                <p className='text-xs text-gray-300 pb-1'>Create: {date}</p>
             </div>
             <div className={`px-1 xl:px-20 pb-5  block xl:flex justify-start items-center `}>
                 <div className='flex justify-center pb-2 md:pb-0'>

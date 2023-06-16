@@ -31,10 +31,10 @@ const Layout = (props: Props) => {
                 </div>
 
             </nav>
-            <main className='px-2 py-5 md:px-28 md:py-10 bg-gray-900'>
+            <main className='px-2 py-5 mb-5 md:px-28 md:py-10 bg-gray-900'>
                 {children}
             </main>
-            <footer className='items-center bg-gray-800 text-gray-400 flex py-2 justify-center fixed bottom-0 w-full'>
+            <footer className='items-center bg-gray-800 text-gray-400 flex py-2  justify-center fixed bottom-0 w-full'>
                 <a href="https://brunofreijomil.com/" target='_blank'><p>© 2023 | <span className='hover:text-gray-300'>Freijomil Bruno Ezequiel</span> </p></a>
             </footer>
         </div>

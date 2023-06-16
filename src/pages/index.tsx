@@ -26,24 +26,24 @@ const Home = () => {
             {tasks.map(({ id, title, description, createdAt }, index) => {
               const formattedDate = new Date(createdAt).toLocaleString(); //esto es para darle un formato mas "visual" a la fecha
               return (
-                  <CardTask
-                    key={id}
-                    id={id}
-                    title={title}
-                    description={description}
-                    index={index + 1}
-                    show_buttons={true}
-                    onClickTask={() => router.push(`edit/${id}`)}
-                    onClickAdd_button={(e) => {
-                      e.stopPropagation();
-                      addTaskToCompleted(id);
-                    }}
-                    onClickDelete_button={(e) => {
-                      e.stopPropagation();
-                      deleteTask(id);
-                    }}
-                    date= {formattedDate}
-                  />
+                <CardTask
+                  key={id}
+                  id={id}
+                  title={title}
+                  description={description}
+                  index={index + 1}
+                  show_buttons={true}
+                  onClickTask={() => router.push(`edit/${id}`)}
+                  onClickAdd_button={(e) => {
+                    e.stopPropagation();
+                    addTaskToCompleted(id);
+                  }}
+                  onClickDelete_button={(e) => {
+                    e.stopPropagation();
+                    deleteTask(id);
+                  }}
+                  date={formattedDate}
+                />
               );
             })}
           </div>

@@ -27,7 +27,6 @@ const useTasks = (): UseTaskData => {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
   const [completedTasks, setCompletedTasks] = useLocalStorage("completedTasks", []);
 
-
   const deleteTask = (id: number | string) => {
     setTasks(tasks.filter((task: Task) => task.id !== id));
     localStorage.setItem("tasks", JSON.stringify([]));  //esto es por si queda en 0 el array, borre el ultimo dato
